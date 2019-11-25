@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <body onload="draw()">
+      <canvas id="sketch" width="300" height="300">
+      </canvas>
+
+      <script>
+
+        function draw() {
+          var sketch = document.getElementById('sketch');
+          var context = sketch.getContext("2d");
+            context.fillStyle = "#FF1301";
+            context.fillRect(100, 125, 500, 500);
+            context.fill();
+
+            context.fillStyle = "#5F13EB";
+            context.beginPath();
+            context.arc(250, 120, 50, 0, 2 * Math.PI, true);
+          	// context.arc(x, y, radius, start angle, end angle, clockwise);
+            context.closePath();
+            context.fill();
+            }
+          
+
+
+
+
+    </script>
+  </body>
+</html>

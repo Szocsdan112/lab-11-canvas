@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <body onload="draw()">
+      <canvas id="sketch" width="300" height="300">
+      </canvas>
+
+      <script>
+        function draw() {
+        		 	var sketch = document.getElementById('sketch');
+        			var context = sketch.getContext("2d");
+        			// radius user input
+        			var radiusstring = prompt("Enter a radius");
+        			var radiusint = parseInt(radiusstring);
+        			// Use a WHILE LOOP to ensure the user enters an acceptable radius value!
+        			while (radiusint > 150) { // terminating condition: when radiusint is finally LESS than 150
+        				var radiusstring = prompt("Radius must be < 150 because max. canvas size is fixed at 300! Try again...");
+        				var radiusint = parseInt(radiusstring);
+        			}
+        			// color user input
+        			var color = prompt("Enter a color (red, green, or blue)");
+        			// Use a WHILE LOOP to ensure the user enters an acceptable color value!
+        			while (color !== "red" && color !== "green" && color !== "blue") {
+        				// && combines 3 diff. conditions: for red, green, and blue
+        				var color = prompt("I SAID: Enter a color (red, green, or blue)");
+        			}
+        			// define fill hex code based on user color input
+        			if (color === "red") {
+        				context.fillStyle = "#E82E17";
+        			} else if (color === "green") {
+        				context.fillStyle = "#4FEB2F";
+        			} else if (color === "blue") {
+        				context.fillStyle = "#408BFF";
+        			}
+        			// now, using the user inputs, draw the circle (finally!)
+        			context.beginPath();
+        			context.arc(150, 150, radiusint, 0, 2 * Math.PI, true);
+        			context.closePath();
+        			context.fill();
+        				// draw the circle at the center of your canvas
+        				// (if your canvas is 300 x 300, then the circle should be no larger than 150 x 150)
+        				// context.arc(x, y, radius, start angle, end angle, clockwise);
+        		}
+
+
+
+      </script>
+  </body>
+</html>
